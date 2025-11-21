@@ -1,0 +1,59 @@
+/* 基本的なリセットとフォント設定 */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* 背景色 */
+    color: #333; /* 文字色 */
+}
+
+/* ヘッダーのスタイル */
+header {
+    background: #2a3d66; /* メインカラー */
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+/* ナビゲーションのスタイル */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+    display: block;
+}
+
+/* セクションの共通スタイル */
+.section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+    border-bottom: 2px solid #2a3d66;
+    padding-bottom: 5px;
+}
+
+/* フッターのスタイル */
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background: #333;
+    color: white;
+}
