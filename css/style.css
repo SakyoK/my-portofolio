@@ -57,3 +57,39 @@ footer {
     background: #333;
     color: white;
 }
+
+/* --- 画像カルーセル用CSS --- */
+
+.image-slider {
+    /* 画像表示エリアの幅と高さを設定 */
+    max-width: 100%;
+    height: auto; /* 高さはコンテンツに合わせる */
+    margin: 0 auto 20px auto; /* 上下にマージンを設定 */
+    position: relative; /* スライドを重ねるための基準 */
+    overflow: hidden; /* スライドがはみ出るのを隠す */
+    border: 1px solid #ddd;
+}
+
+.slide {
+    /* 初期状態では全ての画像を非表示にする */
+    display: none;
+    width: 100%;
+}
+
+.slide img {
+    /* 画像がコンテナの幅いっぱいに広がるようにする */
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 最初に表示したい画像を強制的に表示させる */
+.slide.active {
+    display: block;
+}
+
+/* 今後のブラッシュアップ用: ナビゲーションを画像の下に配置するためのスタイル */
+.slider-nav {
+    text-align: center;
+    padding: 10px 0;
+}
