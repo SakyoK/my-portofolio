@@ -75,30 +75,32 @@ footer {
 }
 
 /* ラジオボタン自体は非表示にする */
-.image-slider input[type="radio"] {
-    display: none;
+.image-slider {
+    width: 100%; /* ★親要素（.section）の幅いっぱいに広がるように設定 */
+    height: auto; 
+    margin: 0;   /* ★余白をなくすため */
+    position: relative; 
+    overflow: hidden; 
+    border: 1px solid #ddd;
+    /* display: flex; は削除またはコメントアウト (ラジオボタン式では不要) */
 }
 
 /* 全てのスライドをデフォルトで非表示にする */
 .slide {
     display: none;
-    width: 100%; /* 親コンテナの幅いっぱいにする */
-    text-align: center; /* 【追記】画像が小さくなった場合に中央に配置 */
+    width: 100%; /* ★親要素（.image-slider）の幅いっぱいにする */
+    text-align: center; 
 }
 
 .slide img {
-    /* 【修正】width: 100%; ではなく max-width: 100%; を使用 */
-    /* これにより、画像は親コンテナを超えて拡大しなくなります。 */
-    max-width: 100%; 
-    
-    /* 【追記】画像の高さを自動調整し、元の縦横比を保ちます */
-    height: auto; 
-    
+    max-width: 100%; /* ★画像の最大幅を親要素に合わせる */
+    height: auto;     /* ★高さを自動調整して縦横比を維持 */
     display: block;
-    
+    margin: 0 auto;   /* ★画像自体を中央寄せにするため */
+
     /* 【任意】画像自体の最大高さを設定して、縦長になりすぎないようにする */
-    /* max-height: 400px; 
-    object-fit: contain; */
+    /* max-height: 400px; */
+    /* object-fit: contain; */
 }
 
 /* 最初に表示したい画像を強制的に表示させる */
