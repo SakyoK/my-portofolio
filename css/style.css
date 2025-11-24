@@ -145,3 +145,19 @@ footer {
     background: #2a3d66; /* 選択時の色 */
     border: 1px solid white;
 }
+/* === プロジェクト2の画像切り替えロジックの追加 === */
+/* ラジオボタンがチェックされたら、その直後の兄弟要素である.slideを表示する */
+#slide2_1:checked ~ .slide-item-2-1,
+#slide2_2:checked ~ .slide-item-2-2,
+#slide2_3:checked ~ .slide-item-2-3 {
+    display: block;
+}
+
+/* === プロジェクト2のナビゲーションドットの選択状態 === */
+/* チェックされたラジオボタンに対応するドットの色を変更する */
+#slide2_1:checked ~ .slider-nav .dot:nth-child(1),
+#slide2_2:checked ~ .slider-nav .dot:nth-child(2),
+#slide2_3:checked ~ .slider-nav .dot:nth-child(3) {
+    background: #2a3d66; /* 選択時の色 */
+    border: 1px solid white;
+}
