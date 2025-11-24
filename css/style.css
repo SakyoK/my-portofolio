@@ -61,17 +61,13 @@ footer {
 /* --- 画像カルーセル用CSS --- */
 
 .image-slider {
-    /* max-width: 100%; はそのまま */
+    width: 100%; 
     height: auto; 
-    margin: 0 auto 20px auto; 
+    margin: 0;   
+    /* ★親要素を基準に子要素（ドット）を配置するために重要 */
     position: relative; 
     overflow: hidden; 
     border: 1px solid #ddd;
-    
-    /* 【追記】画像を中央に配置しやすくするため */
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /* ラジオボタン自体は非表示にする */
