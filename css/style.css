@@ -61,35 +61,59 @@ footer {
 /* --- 画像カルーセル用CSS --- */
 
 .image-slider {
-    /* 画像表示エリアの幅と高さを設定 */
-    max-width: 100%;
-    height: auto; /* 高さはコンテンツに合わせる */
-    margin: 0 auto 20px auto; /* 上下にマージンを設定 */
-    position: relative; /* スライドを重ねるための基準 */
-    overflow: hidden; /* スライドがはみ出るのを隠す */
-    border: 1px solid #ddd;
+    /* ... 既存のスタイル ... */
+    position: relative; 
+    overflow: hidden; 
+    /* display: flex; は削除またはコメントアウト */
 }
 
+/* ラジオボタン自体は非表示にする */
+.image-slider input[type="radio"] {
+    display: none;
+}
+
+/* 全てのスライドをデフォルトで非表示にする */
 .slide {
-    /* 初期状態では全ての画像を非表示にする */
     display: none;
     width: 100%;
 }
 
-.slide img {
-    /* 画像がコンテナの幅いっぱいに広がるようにする */
-    width: 100%;
-    height: auto;
+/* === 画像切り替えの核心部分 === */
+/* ラジオボタンがチェックされたら、その直後の兄弟要素（~）である.slideを表示する */
+#slide1:checked ~ .slide-item-1,
+#slide2:checked ~ .slide-item-2,
+#slide3:checked ~ .slide-item-3 {
     display: block;
 }
 
-/* 最初に表示したい画像を強制的に表示させる */
-.slide.active {
-    display: block;
-}
+/* --- ナビゲーションドットのスタイル --- */
 
-/* 今後のブラッシュアップ用: ナビゲーションを画像の下に配置するためのスタイル */
 .slider-nav {
     text-align: center;
     padding: 10px 0;
+    position: absolute; /* 画像の上に重ねる場合 */
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    z-index: 10; /* 画像より手前に表示 */
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.7); /* 非選択時の色 */
+    border: 1px solid #333;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* チェックされたラジオボタンに対応するドットの色を変更する */
+#slide1:checked ~ .slider-nav .dot:nth-child(1),
+#slide2:checked ~ .slider-nav .dot:nth-child(2),
+#slide3:checked ~ .slider-nav .dot:nth-child(3) {
+    background: #2a3d66; /* 選択時の色 */
+    border: 1px solid white;
 }
