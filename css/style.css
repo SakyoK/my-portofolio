@@ -61,10 +61,17 @@ footer {
 /* --- 画像カルーセル用CSS --- */
 
 .image-slider {
-    /* ... 既存のスタイル ... */
+    /* max-width: 100%; はそのまま */
+    height: auto; 
+    margin: 0 auto 20px auto; 
     position: relative; 
     overflow: hidden; 
-    /* display: flex; は削除またはコメントアウト */
+    border: 1px solid #ddd;
+    
+    /* 【追記】画像を中央に配置しやすくするため */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ラジオボタン自体は非表示にする */
@@ -75,7 +82,28 @@ footer {
 /* 全てのスライドをデフォルトで非表示にする */
 .slide {
     display: none;
-    width: 100%;
+    width: 100%; /* 親コンテナの幅いっぱいにする */
+    text-align: center; /* 【追記】画像が小さくなった場合に中央に配置 */
+}
+
+.slide img {
+    /* 【修正】width: 100%; ではなく max-width: 100%; を使用 */
+    /* これにより、画像は親コンテナを超えて拡大しなくなります。 */
+    max-width: 100%; 
+    
+    /* 【追記】画像の高さを自動調整し、元の縦横比を保ちます */
+    height: auto; 
+    
+    display: block;
+    
+    /* 【任意】画像自体の最大高さを設定して、縦長になりすぎないようにする */
+    /* max-height: 400px; 
+    object-fit: contain; */
+}
+
+/* 最初に表示したい画像を強制的に表示させる */
+.slide.active {
+    display: block;
 }
 
 /* === 画像切り替えの核心部分 === */
